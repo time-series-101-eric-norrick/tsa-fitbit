@@ -96,7 +96,6 @@ def foods_to_dataframe(foods):
     foodz = foods.copy()[1:]
     for i in foodz:
         split_str = i.split('"')
-        print(split_str)
         food_dict[split_str[1]] = {'calories':split_str[3]}
 
     return pd.DataFrame(food_dict).T
