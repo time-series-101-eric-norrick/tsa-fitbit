@@ -69,15 +69,32 @@ def grab_food_logs(file):
     file = remove_activities(file)
     food_logs = {}
     while True:
-        food_log = file.pop(0).split()[2]
-        file.pop(0)
-        calories = file.pop(0).split(',')[2].replace('"','')
-        fat = file.pop(0).split(',')[2].replace('"','')
-        fiber = file.pop(0).split(',')[2].replace('"','')
-        carbs = file.pop(0).split(',')[2].replace('"','')
-        sodium = file.pop(0).split(',')[2].replace('"','')
-        protien = file.pop(0).split(',')[2].replace('"','')
-        water= file.pop(0).split(',')[2].replace('"','')
+
+        # if file[1] == 'Meal,Food,Calories':
+        #     file.pop(1)
+        # if file[1] == 'Breakfast':
+        #     file.pop(2)
+        #     file.pop(1)
+        # if file[1] == 'Lunch':
+        #     file.pop(2)
+        #     file.pop(1)
+
+        food_log = file.pop(0)
+
+        ### Some of the foodlogs don't follow the uniform pattern.
+        ### This if statement circumvents (and deletes) the irregular data
+        ### May come back and patch this to record the irregular data
+        
+        if file.pop(0) != 'Daily Totals' :
+            while file.pop(0) != '"Daily Totals"':
+                    ""
+        calories = file.pop(0)
+        fat = file.pop(0)
+        fiber = file.pop(0)
+        carbs = file.pop(0)
+        sodium = file.pop(0)
+        protien = file.pop(0)
+        water= file.pop(0)
         file.pop(0)
 
         food_logs[food_log] ={'calories' : calories,
