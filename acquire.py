@@ -65,7 +65,6 @@ def remove_activities(file):
 
 def grab_food_logs(file):
     file = file.copy()
-    file = remove_foods(file)
     file = remove_activities(file)
     food_logs = {}
     while True:
