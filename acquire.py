@@ -141,3 +141,32 @@ def csv_to_dataframes(csv_path=''):
     food_logs_df = food_logs_to_dataframe(food_logs)
 
     return [foods_df,activities_df,food_logs_df]
+
+
+def acquire_fitbit(csv_folder= './csvs'):
+
+    csvs = ['2018-04-26_through_2018-05-26.csv',  '2018-08-27_through_2018-09-26.csv',
+    '2018-05-27_through_2018-06-26.csv',  '2018-09-27_through_2018-10-27.csv',
+    '2018-06-27_through_2018-07-27.csv',  '2018-10-28_through-2018-11-27.csv',
+    '2018-07-28_through_2018-08-26.csv',  '2018-11-28_through_2018-12-28.csv']
+
+    if csv_folder[-1] != '/':
+        csv_folder = csv_folder+'/'
+
+    df_lists = []
+    for i in csvs:
+        df_lists.append(csv_to_dataframes(csv_folder+i))
+
+    foods = []
+    activ = []
+    logs = []
+    for i in df_lists:
+        foods.append(i[0])
+        activ.append(i[1])
+        logs.append(i[2])
+
+    f_df = pd.concat(foods)
+    a_df = pd.concat(activ)
+    l_df = pd.concat(logs)
+
+    return [f_df,a_df,l_df]
