@@ -13,7 +13,7 @@ def set_date_times(foods,activ,log):
 
 def merge_dfs(foods,activ,log):
     merged = pd.merge(activ.reset_index(),log.reset_index(),how='right')
-    merged = pd.merge(merged,foods.reset_index(),how='left')
+    merged = pd.merge(merged,foods.reset_index(),how='inner')
     return merged
 
 def prepare_fitbit():
