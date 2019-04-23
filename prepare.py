@@ -18,4 +18,8 @@ def merge_dfs(foods,activ,log):
 
 def prepare_fitbit():
 
-    return merge_dfs(*set_date_times(*aq.acquire_fitbit())).set_index('index').convert_objects(convert_numeric=True, convert_dates=True)
+    merge_df =  merge_dfs(*set_date_times(*aq.acquire_fitbit())).set_index('index')#.convert_objects(convert_numeric=True, convert_dates=True)
+    cols = list(merge_df.columns)
+    for col in cols:
+        merge_df[col] = merge_df[col].str.replace(',','')
+    return merge_df.convert_objects(convert_numeric=True)
