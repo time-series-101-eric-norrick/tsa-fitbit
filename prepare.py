@@ -17,4 +17,4 @@ def merge_dfs(foods,activ,log):
     return merged
 
 def prepare_fitbit():
-    return merge_dfs(*set_date_times(*aq.acquire_fitbit()))
+    return merge_dfs(*set_date_times(*aq.acquire_fitbit())).set_index('index')
