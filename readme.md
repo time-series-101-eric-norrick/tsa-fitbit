@@ -1,13 +1,5 @@
-## Acquire.py
+## Time Series Analysis
+All work has been done in the TimeSeries_Project.ipynb notebook
 
-Primary purpose of this function, produce DataFrames from fitbit CSVs
-How to use:
-1. Make sure all your CSVs are in a folder
-1. Make sure to not change the name of any of the CSVs
-1. import acquire
-1. acquire.acquire_fitbit("name of folder with CSVs")
+[Google Slide Link](https://docs.google.com/presentation/d/1DvK6_r6ol6RPpmZfBD59p-okTcnQ_bEKiLN2RmYmPi4/edit?usp=sharing) (direct reference)
 
-acquire_fitbit returns 3 DataFrames in a list:
-1. Food Data
-1. Activity Data
-1. Food Log Data
